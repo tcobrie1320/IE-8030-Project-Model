@@ -11,6 +11,7 @@ Dr.Emily Tucker
 """
 # Set up packages
 from pyomo.environ import *
+import pandas as pd
 
 # Set 1 (Set of API sites)
 model.S = Set(initialize["USA", "Mexico", "Puerto Rico", "Ireland", "Italy", "Hungary", "Croatia", "Israel", "India", "China"])
@@ -25,6 +26,8 @@ model.C = Set(initialize["China",	"India",	"United States",	"Indonesia",	"Pakist
 print(C)
 
 # Set up Distance Matrix
+
+
 
 # Create the model
 model = ConcreteModel(name = "Team 3 Final Project Model-Teva Supply Chain")
