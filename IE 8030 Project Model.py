@@ -102,10 +102,12 @@ model.C = Set(initialize["China", "India", "United States", "Indonesia",
 print(C)
 
 # Set up Distance Matrices
+
 # Distance from API site to Manufacturing Site
 r = 
 r_sf = pd.DataFrame(data = r, columns = model.F, index = model.S)
 r_val = r_sf.stack().to_dict() #convert to dictionary
+
 # Distance from Manufacturing Site to Country
 k = 
 k_fc = pd.DataFrame(data = k, columns = model."", index = model."")
