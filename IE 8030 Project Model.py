@@ -31,8 +31,8 @@ print(F)
 # Set 3 (Set of Countries)
 model.C = Set(initialize["China", "India", "United States", "Indonesia",
                          "Pakistan", "Brazil", "Nigeria", "Bangladesh",	
-                         "Russia",	"Mexico",	"Japan",	"Ethiopia",	
-                         "Philippines",	"Egypt",	"Vietnam",	"DR Congo",	
+                         "Russia",	"Mexico", "Japan","Ethiopia",	
+                         "Philippines",	"Egypt", "Vietnam",	"DR Congo",	
                          "Turkey",	"Iran",	"Germany", "Thailand",	
                          "United Kingdom",	"France", "Italy",	
                          "Tanzania", "South Africa", "Myanmar",	
@@ -103,9 +103,13 @@ print(C)
 
 # Set up Distance Matrices
 # Distance from API site to Manufacturing Site
-r_SF
+r = 
+r_sf = pd.DataFrame(data = r, columns = model.F, index = model.S)
+r_val = r_sf.stack().to_dict() #convert to dictionary
 # Distance from Manufacturing Site to Country
-k_
+k = 
+k_fc = pd.DataFrame(data = k, columns = model."", index = model."")
+k_val = k_fc.stack().to_dict() #convert to dictionary
 
 # Parameters
 # Count of Manufacturing Sites
@@ -125,8 +129,6 @@ model = ConcreteModel(name = "Team 3 Final Project Model-Teva Supply Chain")
 # Decision Variables
 model.x = Var(model.S,model.F, within=NonNegativeReals)
 model.y = Var(model.F,model.C, within=NonNegativeReals)
-
-
 
 # Objective Function
 
