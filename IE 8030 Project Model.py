@@ -35,8 +35,8 @@ model = ConcreteModel(name = "Team 3 Final Project Model-Teva Supply Chain")
 #  Variables
 
 # Decision Variables
-model.x = Var(S,F, within=NonNegativeReals)
-model.y = Var(F,C, within=NonNegativeReals)
+model.x = Var(model.S,model.F, within=NonNegativeReals)
+model.y = Var(model.F,model.C, within=NonNegativeReals)
 
 # Parameters
 # Count of Manufacturing Sites
