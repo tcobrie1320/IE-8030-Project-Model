@@ -1585,7 +1585,7 @@ k = [[ 11647274,	13576673,	0,	14961819,	12353570,	7316912,
  10983881,	12650102,	18048281,	18726471,	2470443,	9592408,	
  18049138,	7098581,	7613673,	5894110,	18079690,	13135620,	
  14802512,	18190697,	14135481,	8530596,	8262787,	11012988 ]]
-k_fc = pd.DataFrame(data = k, columns = model."", index = model."")
+k_fc = pd.DataFrame(data = k, columns = model.C, index = model.F)
 k_val = k_fc.stack().to_dict() #convert to dictionary
 
 # Parameters
