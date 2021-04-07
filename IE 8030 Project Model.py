@@ -8,8 +8,6 @@ IE 8030 Final Project Model
 Dr.Emily Tucker
 4/26/21
 
-
-Test- Justin 2:53pm
 """
 # Set up packages
 from pyomo.environ import *
