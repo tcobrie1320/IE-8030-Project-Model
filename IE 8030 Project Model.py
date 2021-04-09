@@ -13,23 +13,26 @@ Dr.Emily Tucker
 from pyomo.environ import *
 import pandas as pd
 
+# Create the model
+model = ConcreteModel(name = "Team 3 Final Project Model-Teva Supply Chain")
+
 # Set 1 (Set of API sites)
-model.S = Set(initialize["USA", "Mexico", "Puerto Rico", "Ireland", "Italy", 
+model.S = Set(initialize=["USA", "Mexico", "Puerto Rico", "Ireland", "Italy", 
                          "Hungary", "Croatia", "Israel", "India", "China"])
-print(S)
+print(model.S)
 
 # Set 2 (Set of Manufacturing Sites)
-model.F = Set(initialize["USA", "Mexico", "Puerto Rico", "Ireland", "Italy", 
+model.F = Set(initialize=["USA", "Mexico", "Puerto Rico", "Ireland", "Italy", 
                          "Hungary", "Croatia", "Israel", "India", "Canada", 
                          "Venezuela", "Peru", "Chile", "Brazil", "Argentina", 
                          "Iceland", "Netherlands", "Spain", "UK", "Poland", 
                          "Germany", "Malta", "Lithuania", "Russia", "Serbia", 
                          "Czech", "Hungary", "Romania", "Bulgaria", "Greece", 
                          "Japan", "Thailand", "Singapore", "Indonesia"])
-print(F)
+print(model.F)
 
 # Set 3 (Set of Countries)
-model.C = Set(initialize["China", "India", "United States", "Indonesia",
+model.C = Set(initialize=["China", "India", "United States", "Indonesia",
                          "Pakistan", "Brazil", "Nigeria", "Bangladesh",	
                          "Russia",	"Mexico", "Japan","Ethiopia",	
                          "Philippines",	"Egypt", "Vietnam",	"DR Congo",	
@@ -99,7 +102,7 @@ model.C = Set(initialize["China", "India", "United States", "Indonesia",
                          "Saint Helena", "Saint Pierre & Miquelon",	
                          "Montserrat", 
                          "Falkland Islands", "Niue", "Tokelau",	"Holy See"])
-print(C)
+print(model.C)
 
 # Set up Distance Matrices
 
@@ -1586,12 +1589,18 @@ G = [389761748]
 
 # Number of Manufacturing Sites in Country C
 
+<<<<<<< HEAD
 m_c=[1,	3,	3,	3,	3,	1,	1,	3,	3,	1,	1,	3,	1,	1,	1,	1,	3,	3,	1,
      1,	3,	3,	3,	3,	1,	3,	1,	1,	3,	1,	3,	3]
 
 # Number of Manufacturing Sites in Country C
+=======
+# Number of API Sites in Country  c,  ∀ s ∈ S ⊂ C
+>>>>>>> d8572461eac1c04a7953528a8d6a259cf887d1ec
 
 a_c = [2,2,2,2,5,2,1,3,3,1]
+
+# Number of Manufacturing Sites in Country c, ∀ f ∈ F ⊂ C
 
 Count_F = len(F)
 print(Count_F)
@@ -1600,9 +1609,6 @@ print(Count_F)
 Count_C = len(C)
 print(Count_C)
 
-# Create the model
-model = ConcreteModel(name = "Team 3 Final Project Model-Teva Supply Chain")
-
 #  Variables
 
 # Decision Variables
@@ -1610,5 +1616,6 @@ model.x = Var(model.S,model.F, within=NonNegativeReals)
 model.y = Var(model.F,model.C, within=NonNegativeReals)
 
 # Objective Function
-
+def ObjectiveFunction(model):
+    return (1/Count_F)
 # Amount Sent from API Site (in set S) to Manufacturing Site (in set F)
