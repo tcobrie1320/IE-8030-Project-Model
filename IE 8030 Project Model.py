@@ -27,7 +27,7 @@ model.F = Set(initialize=["USA", "Mexico", "Puerto Rico", "Ireland", "Italy",
                          "Venezuela", "Peru", "Chile", "Brazil", "Argentina", 
                          "Iceland", "Netherlands", "Spain", "UK", "Poland", 
                          "Germany", "Malta", "Lithuania", "Russia", "Serbia", 
-                         "Czech", "Hungary", "Romania", "Bulgaria", "Greece", 
+                         "Czech",  "Romania", "Bulgaria", "Greece", 
                          "Japan", "Thailand", "Singapore", "Indonesia"])
 print(model.F)
 
@@ -1587,26 +1587,19 @@ d = [71966189,	69000220,	16550133,	13676181,	11044617,	10627971,
 #Global Demand, G = Sum of D across every country
 G = [389761748]
 
-# Number of Manufacturing Sites in Country C
 
-<<<<<<< HEAD
-m_c=[1,	3,	3,	3,	3,	1,	1,	3,	3,	1,	1,	3,	1,	1,	1,	1,	3,	3,	1,
-     1,	3,	3,	3,	3,	1,	3,	1,	1,	3,	1,	3,	3]
-
-# Number of Manufacturing Sites in Country C
-=======
 # Number of API Sites in Country  c,  ∀ s ∈ S ⊂ C
->>>>>>> d8572461eac1c04a7953528a8d6a259cf887d1ec
 
 a_c = [2,2,2,2,5,2,1,3,3,1]
 
 # Number of Manufacturing Sites in Country c, ∀ f ∈ F ⊂ C
-
-Count_F = len(F)
+m_c=[1,	3,	3,	3,	3,	1,	1,	3,	3,	1,	1,	3,	1,	1,	1,	1,	3,	3,	1,
+     1,	3,	3,	3,	3,	1,	3,	1,	1,	3,	1,	3,	3]
+Count_F = len(model.F)
 print(Count_F)
 
 #Count of Countries
-Count_C = len(C)
+Count_C = len(model.C)
 print(Count_C)
 
 #  Variables
