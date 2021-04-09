@@ -1615,6 +1615,7 @@ def ObjectiveFunction(model):
                         *(sum(model.k[f,c]*model.y[f,c]) for s in model.S 
                         for f in model.F for c in model.C)
 model.obj = Objective(rule = ObjectiveFunction, sense = minimize)
+
 # Amount Sent from API Site (in set S) to Manufacturing Site (in set F)
 
 # Solve
