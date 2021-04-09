@@ -14,22 +14,22 @@ from pyomo.environ import *
 import pandas as pd
 
 # Set 1 (Set of API sites)
-model.S = Set(initialize["USA", "Mexico", "Puerto Rico", "Ireland", "Italy", 
+model.S = Set(initialize=["USA", "Mexico", "Puerto Rico", "Ireland", "Italy", 
                          "Hungary", "Croatia", "Israel", "India", "China"])
-print(S)
+print(model.S)
 
 # Set 2 (Set of Manufacturing Sites)
-model.F = Set(initialize["USA", "Mexico", "Puerto Rico", "Ireland", "Italy", 
+model.F = Set(initialize=["USA", "Mexico", "Puerto Rico", "Ireland", "Italy", 
                          "Hungary", "Croatia", "Israel", "India", "Canada", 
                          "Venezuela", "Peru", "Chile", "Brazil", "Argentina", 
                          "Iceland", "Netherlands", "Spain", "UK", "Poland", 
                          "Germany", "Malta", "Lithuania", "Russia", "Serbia", 
                          "Czech", "Hungary", "Romania", "Bulgaria", "Greece", 
                          "Japan", "Thailand", "Singapore", "Indonesia"])
-print(F)
+print(model.F)
 
 # Set 3 (Set of Countries)
-model.C = Set(initialize["China", "India", "United States", "Indonesia",
+model.C = Set(initialize=["China", "India", "United States", "Indonesia",
                          "Pakistan", "Brazil", "Nigeria", "Bangladesh",	
                          "Russia",	"Mexico", "Japan","Ethiopia",	
                          "Philippines",	"Egypt", "Vietnam",	"DR Congo",	
@@ -1647,5 +1647,6 @@ model.x = Var(model.S,model.F, within=NonNegativeReals)
 model.y = Var(model.F,model.C, within=NonNegativeReals)
 
 # Objective Function
-
+def ObjectiveFunction(model):
+    return (1/Count_F)
 # Amount Sent from API Site (in set S) to Manufacturing Site (in set F)
