@@ -13,6 +13,9 @@ Dr.Emily Tucker
 from pyomo.environ import *
 import pandas as pd
 
+# Create the model
+model = ConcreteModel(name = "Team 3 Final Project Model-Teva Supply Chain")
+
 # Set 1 (Set of API sites)
 model.S = Set(initialize=["USA", "Mexico", "Puerto Rico", "Ireland", "Italy", 
                          "Hungary", "Croatia", "Israel", "India", "China"])
@@ -1636,9 +1639,6 @@ print(Count_F)
 #Count of Countries
 Count_C = len(C)
 print(Count_C)
-
-# Create the model
-model = ConcreteModel(name = "Team 3 Final Project Model-Teva Supply Chain")
 
 #  Variables
 
