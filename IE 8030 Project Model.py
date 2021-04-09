@@ -1550,7 +1550,7 @@ k = [[ 11647274,	13576673,	0,	14961819,	12353570,	7316912,
  14802512,	18190697,	14135481,	8530596,	8262787,	11012988 ]]
 k_fc = pd.DataFrame(data = k, columns = model.C, index = model.F)
 k_val = k_fc.stack().to_dict() #convert to dictionary
-
+model.k = Param(model.F, model.C, initialize=k_val)
 # Parameters
 #Demand for each country C
 d = [71966189,	69000220,	16550133,	13676181,	11044617,	10627971,	
