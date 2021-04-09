@@ -1624,9 +1624,11 @@ G = [389761748]
 
 # Count of Manufacturing Sites
 
-# Number of Manufacturing Sites in Country S
+# Number of API Sites in Country  c,  ∀ s ∈ S ⊂ C
 
 a_c = [2,2,2,2,5,2,1,3,3,1]
+
+# Number of Manufacturing Sites in Country c, ∀ f ∈ F ⊂ C
 
 Count_F = len(F)
 print(Count_F)
