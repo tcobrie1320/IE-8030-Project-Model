@@ -1595,6 +1595,7 @@ a_c = [2,2,2,2,5,2,1,3,3,1]
 # Number of Manufacturing Sites in Country c, ∀ f ∈ F ⊂ C
 m_c=[1,	3,	3,	3,	3,	1,	1,	3,	3,	1,	1,	3,	1,	1,	1,	1,	3,	3,	1,
      1,	3,	3,	3,	3,	1,	3,	1,	1,	3,	1,	3,	3]
+
 Count_F = len(model.F)
 print(Count_F)
 
