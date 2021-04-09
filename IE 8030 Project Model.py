@@ -1616,3 +1616,9 @@ def ObjectiveFunction(model):
                         for f in model.F for c in model.C)
 model.obj = Objective(rule = ObjectiveFunction, sense = minimize)
 # Amount Sent from API Site (in set S) to Manufacturing Site (in set F)
+
+# Solve
+solver = SolverFactory('gurobi')
+solver.solve(model)
+model.pprint()
+print("Objective Value: " + str(value(model.obj)))
