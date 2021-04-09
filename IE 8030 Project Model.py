@@ -1624,6 +1624,10 @@ G = [389761748]
 
 # Count of Manufacturing Sites
 
+# Number of Manufacturing Sites in Country S
+
+a_c = [2,2,2,2,5,2,1,3,3,1]
+
 Count_F = len(F)
 print(Count_F)
 
