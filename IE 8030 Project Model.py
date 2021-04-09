@@ -176,7 +176,7 @@ r = [[0, 1632525, 3529005, 6678610,	8619053, 8652055, 8553872, 10860041,
 
 r_sf = pd.DataFrame(data = r, columns = model.F, index = model.S)
 r_val = r_sf.stack().to_dict() #convert to dictionary
-
+model.r = Param(model.S, model.F, initialize=r_val)
 # Distance from Manufacturing Site to Country
 k = [[ 11647274,	13576673,	0,	14961819,	12353570,	7316912,	
       10649151,	13227344,	8886096,	1632525,	10150452,	13143565,	
@@ -1611,5 +1611,5 @@ model.y = Var(model.F,model.C, within=NonNegativeReals)
 
 # Objective Function
 def ObjectiveFunction(model):
-    return (1/Count_F)
+    return (1/Count_F)*sum
 # Amount Sent from API Site (in set S) to Manufacturing Site (in set F)
