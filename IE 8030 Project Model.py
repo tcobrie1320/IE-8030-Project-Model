@@ -102,7 +102,7 @@ model.C = Set(initialize=["China", "India", "United States", "Indonesia",
                          "Saint Helena", "Saint Pierre & Miquelon",	
                          "Montserrat", 
                          "Falkland Islands", "Niue", "Tokelau",	"Holy See"])
-print(C)
+print(model.C)
 
 # Set up Distance Matrices
 
