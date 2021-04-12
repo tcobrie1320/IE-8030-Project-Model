@@ -1611,9 +1611,9 @@ model.y = Var(model.F,model.C, within=NonNegativeReals)
 
 # Objective Function
 def ObjectiveFunction(model):
-    return (1/Count_F)*(sum(model.r[s,f]*model.x[s,f])+(1/Count_C)
-                        *(sum(model.k[f,c]*model.y[f,c]) for s in model.S 
-                        for f in model.F for c in model.C))
+    return (1/Count_F)*(sum(model.r[s,f]*model.x[s,f])+(1/Count_C) for s in model.S 
+                        for f in model.F for c in model.C)*(sum(model.k[f,c]*model.y[f,c] 
+                        for s in model.S  for f in model.F for c in model.C))
 model.obj = Objective(rule=ObjectiveFunction, sense = minimize)
 
 # Amount Sent from API Site (in set S) to Manufacturing Site (in set F)
