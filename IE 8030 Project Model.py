@@ -1613,10 +1613,31 @@ model.y = Var(model.F,model.C, within=NonNegativeReals)
 def ObjectiveFunction(model):
     return (1/Count_F)*(sum(model.r[s,f]*model.x[s,f])+(1/Count_C)
                         *(sum(model.k[f,c]*model.y[f,c]) for s in model.S 
-                        for f in model.F for c in model.C)
-model.obj = Objective(rule = ObjectiveFunction, sense = minimize)
+                        for f in model.F for c in model.C))
+model.obj = Objective(rule=ObjectiveFunction, sense = minimize)
 
 # Amount Sent from API Site (in set S) to Manufacturing Site (in set F)
+
+#Constraints
+#1
+def SupplyManu2Country(model, f):
+    return sum(model.y[f,c] >= d[c] for c in model.C) 
+model.con_SupplyManu2Country = Constraint(model.F, model.C, rule=SupplyManu2Country)
+
+#2
+def ManuGlobalDemandLimit(model, c):
+    return sum(model.y[f,c] <= 0.25*G*m_c[f]for f in model.F)
+model.con_ManuGlobalDemandLimit = Constraint(model.F, model.C, rule=ManuGlobalDemandLimit)
+
+#3 and #4?? Can we just do equals
+def ManuSentSupply(model, c,s):
+    return sum(model.y[f,c] == model.x[s,f] for f in model.F)
+model.con_ManuSentSupply = Constraint(model.F, model.C, model.S, rule=ManuSentSupply)
+
+#5 
+def APIGlobalDemandLimit(model, f):
+    return sum(model.x[s,f] <= 0.25*G[s]*a_c for s in model.S)
+model.con_APIGlobalDemandLimit = Constraint(model.S, model.F, rule=APIGlobalDemandLimit)
 
 # Solve
 solver = SolverFactory('gurobi')
