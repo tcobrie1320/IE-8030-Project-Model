@@ -17,18 +17,20 @@ import pandas as pd
 model = ConcreteModel(name = "Team 3 Final Project Model-Teva Supply Chain")
 
 # Set 1 (Set of API sites)
-model.S = Set(initialize=["USA", "Mexico", "Puerto Rico", "Ireland", "Italy", 
-                         "Hungary", "Croatia", "Israel", "India", "China"])
+model.S = Set(initialize=[1, 2,	3,	4,	5,	6,	7,	8,	9,	10])
+# model.S = Set(initialize=["USA", "Mexico", "Puerto Rico", "Ireland", "Italy", 
+#                          "Hungary", "Croatia", "Israel", "India", "China"])
 print(model.S)
 
 # Set 2 (Set of Manufacturing Sites)
-model.F = Set(initialize=["USA", "Mexico", "Puerto Rico", "Ireland", "Italy", 
-                         "Hungary", "Croatia", "Israel", "India", "Canada", 
-                         "Venezuela", "Peru", "Chile", "Brazil", "Argentina", 
-                         "Iceland", "Netherlands", "Spain", "UK", "Poland", 
-                         "Germany", "Malta", "Lithuania", "Russia", "Serbia", 
-                         "Czech",  "Romania", "Bulgaria", "Greece", 
-                         "Japan", "Thailand", "Singapore", "Indonesia"])
+model.F = Set(initialize=[1, 2,	3,	4,	5,	6,	7,	8,	9,	10,	11,	12,	13,	14,	15,	16,	17,	18,	19,	20,	21,	22,	23,	24,	25,	26,	27,	28,	29,	30,	31,	32,	33])
+  # model.F = Set(initialize=["USA", "Mexico", "Puerto Rico", "Ireland", "Italy", 
+  #                        "Hungary", "Croatia", "Israel", "India", "Canada", 
+  #                        "Venezuela", "Peru", "Chile", "Brazil", "Argentina", 
+  #                        "Iceland", "Netherlands", "Spain", "UK", "Poland", 
+  #                        "Germany", "Malta", "Lithuania", "Russia", "Serbia", 
+  #                        "Czech",  "Romania", "Bulgaria", "Greece", 
+  #                        "Japan", "Thailand", "Singapore", "Indonesia"])
 print(model.F)
 
 # Set 3 (Set of Countries)
