@@ -1632,9 +1632,10 @@ model.obj = Objective(rule=ObjectiveFunction, sense = minimize)
 
 #Constraints
 #1
-def SupplyManu2Country(model, f):
-    return sum(model.y[f,c] >= d[c] for c in model.C) 
-model.con_SupplyManu2Country = Constraint(model.F, rule=SupplyManu2Country)
+def SupplyManu2Country(model, c):
+    return sum(model.y[f,c]  for f in model.F) >= d[c]
+model.con_SupplyManu2Country = Constraint(model.C,rule=SupplyManu2Country)
+
 
 #2
 def ManuGlobalDemandLimit(model, c):
