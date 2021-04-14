@@ -1631,20 +1631,21 @@ model.obj = Objective(rule=ObjectiveFunction, sense = minimize)
 # Amount Sent from API Site (in set S) to Manufacturing Site (in set F)
 
 #Constraints
-#1
+#1 Works
 def SupplyManu2Country(model, c):
     return sum(model.y[f,c]  for f in model.F) >= d[c]
 model.con_SupplyManu2Country = Constraint(model.C,rule=SupplyManu2Country)
 
 
-#2
-def ManuGlobalDemandLimit(model, c):
-    return sum(model.y[f,c] <= 0.25*G*m_c[f]for f in model.F)
-model.con_ManuGlobalDemandLimit = Constraint(model.F, model.C, rule=ManuGlobalDemandLimit)
+#2 (Changed to new format)TypeError: can't multiply sequence by non-int of type 'float'
+def ManuGlobalDemandLimit(model, f):
+    return sum(model.y[f,c] for c in model.C) <= ((0.25*G)*m_c[f])
+model.con_ManuGlobalDemandLimit = Constraint( model.F, rule=ManuGlobalDemandLimit)
 
 #3 and #4?? Can we just do equals
+#Gonna have to look at this more
 def ManuSentSupply(model, c,s):
-    return sum(model.y[f,c] == model.x[s,f] for f in model.F)
+    return sum(model.y[f,c]for c in model.C) == sum(model.x[s,f] for s in model.S)
 model.con_ManuSentSupply = Constraint(model.F, model.C, model.S, rule=ManuSentSupply)
 
 #5 
