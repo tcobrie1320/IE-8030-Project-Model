@@ -1664,5 +1664,5 @@ print("Objective Value: " + str(value(model.obj)))
 model.x_grid = Var(model.S, model.F, within=NonNegativeReals, initialize=1)
 
 X_data = {(s, f, v.name): value(v) for (s, f), v in model.x.items()}
-df = pd.DataFrame.from_dict(E_grid_data, orient="index", columns=["variable value"])
+df = pd.DataFrame.from_dict(X_data, orient="index", columns=["variable value"])
 df.to_excel(r'C:\Users\Tbone1320\Desktop\IE 8030\Results.xlsx', index = False)
