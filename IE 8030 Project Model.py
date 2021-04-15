@@ -1650,9 +1650,9 @@ def ManuSentSupply(model, c,s):
 model.con_ManuSentSupply = Constraint( model.C, model.S, rule=ManuSentSupply)
 
 #5 
-def APIGlobalDemandLimit(model, f):
-    return sum(model.x[s,f] <= 0.25*G[s]*a_c for s in model.S)
-model.con_APIGlobalDemandLimit = Constraint(model.S, model.F, rule=APIGlobalDemandLimit)
+def APIGlobalDemandLimit(model, s):
+    return sum(model.x[s,f]for f in model.F) <= a_c[s] 
+model.con_APIGlobalDemandLimit = Constraint(model.S, rule=APIGlobalDemandLimit)
 
 # Solve
 solver = SolverFactory('gurobi')
