@@ -1597,9 +1597,10 @@ G = [389761748]
 
 a_c = [2,2,2,2,5,2,1,3,3,1]
 
-# Number of Manufacturing Sites in Country c, ∀ f ∈ F ⊂ C
-m_c=[1,	3,	3,	3,	3,	1,	1,	3,	3,	1,	1,	3,	1,	1,	1,	1,	3,	3,	1,
-     1,	3,	3,	3,	3,	1,	3,	1,	1,	3,	1,	3,	3]
+# Capicity/Throughput of Manufacturing Sites in Country c, ∀ f ∈ F ⊂ C
+m_c= [97440437,	292321311,	292321311,	292321311,	292321311,	97440437,	97440437,	292321311,	292321311,	97440437,	97440437,	292321311,	97440437,	97440437,	97440437,	97440437,	292321311,	292321311,	97440437,	292321311,	97440437,	292321311,	292321311,	292321311,	292321311,	97440437,	292321311,	97440437,	97440437,	292321311,	97440437,	292321311,	292321311]
+# m_c=[1,	3,	3,	3,	3,	1,	1,	3,	3,	1,	1,	3,	1,	1,	1,	1,	3,	3,	1,
+#      1,	3,	3,	3,	3,	1,	3,	1,	1,	3,	1,	3,	3]
 
 Count_F = 69
 print(Count_F)
@@ -1639,7 +1640,7 @@ model.con_SupplyManu2Country = Constraint(model.C,rule=SupplyManu2Country)
 
 #2 (Changed to new format)TypeError: can't multiply sequence by non-int of type 'float'
 def ManuGlobalDemandLimit(model, f):
-    return sum(model.y[f,c] for c in model.C) <= ((0.25*G)*m_c[f])
+    return sum(model.y[f,c] for c in model.C) <= (m_c[f])
 model.con_ManuGlobalDemandLimit = Constraint( model.F, rule=ManuGlobalDemandLimit)
 
 #3 and #4?? Can we just do equals
