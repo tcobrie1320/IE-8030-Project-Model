@@ -1645,9 +1645,9 @@ model.con_ManuGlobalDemandLimit = Constraint( model.F, rule=ManuGlobalDemandLimi
 
 #3 and #4?? Can we just do equals
 #Gonna have to look at this more
-def ManuSentSupply(model, c,s):
+def ManuSentSupply(model, f):
     return sum(model.y[f,c]for c in model.C) == sum(model.x[s,f] for s in model.S)
-model.con_ManuSentSupply = Constraint( model.C, model.S, rule=ManuSentSupply)
+model.con_ManuSentSupply = Constraint( model.F, rule=ManuSentSupply)
 
 #5 
 def APIGlobalDemandLimit(model, s):
