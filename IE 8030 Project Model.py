@@ -1659,3 +1659,9 @@ solver = SolverFactory('gurobi')
 solver.solve(model)
 model.pprint()
 print("Objective Value: " + str(value(model.obj)))
+##
+
+model.E_grid = Var(model.i, model.m, model.p, within=NonNegativeReals, initialize=1)
+
+X_data = {(i, m, p, v.name): value(v) for (i, m, p), v in model.x.items()}
+df = pd.DataFrame.from_dict(E_grid_data, orient="index", columns=["variable value"])
