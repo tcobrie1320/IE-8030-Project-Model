@@ -1599,7 +1599,7 @@ a_c = [2,2,2,2,5,2,1,3,3,1]
 
 # Capicity/Throughput of Manufacturing Sites in Country c, ∀ f ∈ F ⊂ C
 m_c= [97440437,	292321311,	292321311,	292321311,	292321311,	97440437,	97440437,	292321311,	292321311,	97440437,	97440437,	292321311,	97440437,	97440437,	97440437,	97440437,	292321311,	292321311,	97440437,	292321311,	97440437,	292321311,	292321311,	292321311,	292321311,	97440437,	292321311,	97440437,	97440437,	292321311,	97440437,	292321311,	292321311]
-# m_c=[1,	3,	3,	3,	3,	1,	1,	3,	3,	1,	1,	3,	1,	1,	1,	1,	3,	3,	1,
+# This is the m_c=[1,	3,	3,	3,	3,	1,	1,	3,	3,	1,	1,	3,	1,	1,	1,	1,	3,	3,	1,
 #      1,	3,	3,	3,	3,	1,	3,	1,	1,	3,	1,	3,	3]
 
 Count_F = 69
@@ -1647,7 +1647,7 @@ model.con_ManuGlobalDemandLimit = Constraint( model.F, rule=ManuGlobalDemandLimi
 #Gonna have to look at this more
 def ManuSentSupply(model, c,s):
     return sum(model.y[f,c]for c in model.C) == sum(model.x[s,f] for s in model.S)
-model.con_ManuSentSupply = Constraint(model.F, model.C, model.S, rule=ManuSentSupply)
+model.con_ManuSentSupply = Constraint( model.C, model.S, rule=ManuSentSupply)
 
 #5 
 def APIGlobalDemandLimit(model, f):
