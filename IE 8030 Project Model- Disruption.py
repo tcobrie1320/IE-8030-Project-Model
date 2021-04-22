@@ -224,14 +224,6 @@ def ObjectiveFunction(model):
                         for s in model.S  for f in model.F for c in model.C)))
 model.obj = Objective(rule=ObjectiveFunction, sense = minimize)
 
-# Objective Function
-#def ObjectiveFunction(model):
-#    return (1/Count_F)*(sum(model.r[s,f]*model.x[s,f])+(1/Count_C) for s in model.S 
- #                       for f in model.F for c in model.C)*(sum(model.k[f,c]*model.y[f,c] 
- #                       for s in model.S  for f in model.F for c in model.C))
-#model.obj = Objective(rule=ObjectiveFunction, sense = minimize)
-
-# Amount Sent from API Site (in set S) to Manufacturing Site (in set F)
 
 #Constraints
 #1 Works
@@ -270,8 +262,11 @@ Y_data = {(f, c, v.name): value(v) for (f, c), v in model.y.items()}
 df_x = pd.DataFrame.from_dict(X_data, orient="index", columns=["variable value"])
 df_y = pd.DataFrame.from_dict(Y_data, orient="index", columns=["variable value"])
 
-# df_x.to_excel(r'C:\Users\Tbone1320\Desktop\IE 8030\Results_X.xlsx', index = False)
-# df_y.to_excel(r'C:\Users\Tbone1320\Desktop\IE 8030\Results_Y.xlsx', index = False)
-
-df_x.to_excel(r'C:\Users\jtberg\Documents\IE 8030 Engineering Optimization and Applications\Project\Results\Results_X_Dis.xlsx', index = False)
-df_y.to_excel(r'C:\Users\jtberg\Documents\IE 8030 Engineering Optimization and Applications\Project\Results\Results_Y_Dis.xlsx', index = False)
+# =============================================================================
+# #Note: This section is where to save the results.
+# # df_x.to_excel(r'C:\Users\Tbone1320\Desktop\IE 8030\Results_X.xlsx', index = False)
+# # df_y.to_excel(r'C:\Users\Tbone1320\Desktop\IE 8030\Results_Y.xlsx', index = False)
+# 
+# df_x.to_excel(r'C:\Users\jtberg\Documents\IE 8030 Engineering Optimization and Applications\Project\Results\Results_X_Dis.xlsx', index = False)
+# df_y.to_excel(r'C:\Users\jtberg\Documents\IE 8030 Engineering Optimization and Applications\Project\Results\Results_Y_Dis.xlsx', index = False)
+# =============================================================================
